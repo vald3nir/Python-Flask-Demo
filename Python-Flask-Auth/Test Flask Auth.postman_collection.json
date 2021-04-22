@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "ffd36a17-046a-4c43-80b1-9ce0eb8d979c",
+		"name": "Test Flask Auth",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "127.0.0.1:5000/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"severino\",\"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:5000/register",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:5000/create_authors",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "severino",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-access-tokens",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiJhYmU5NjcxNi1mZmEzLTQ1MGQtYjQyNS1mNDA3NmM0MTE5ZjgiLCJleHAiOjE1OTEwNTgwMDN9.ntZP0ngMHOzFolP55JheWZosxMcPuQ9kaPrBffcQHk8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"teererere\",\n\t\"book\" : \"xcxcxc\",\n\t\"country\": \"cvcvcvcvcvcvc\",\n\t\"user_id\" : \"96fdb1f3-1630-4bc3-a72f-18d2b0b092be\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:5000/create_authors",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"create_authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:5000/login",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "severino",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"severino\",\"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "127.0.0.1:5000/login",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:5000/authors",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-access-tokens",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiI2OGViYjY5OS1jYzRkLTRjYTEtYTE1OC02NzJlZDE0YzJmMTkiLCJleHAiOjE1OTEwNTY3ODZ9.d09BRZB4jVeDFyBGHZlqPEJAIJ2TMmpBYUVOCn3EyVE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\" : \"teererere\",\n\t\"book\" : \"xcxcxc\",\n\t\"country\": \"cvcvcvcvcvcvc\"\n}"
+				},
+				"url": {
+					"raw": "127.0.0.1:5000/authors",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:5000/user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-access-tokens",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiI2OGViYjY5OS1jYzRkLTRjYTEtYTE1OC02NzJlZDE0YzJmMTkiLCJleHAiOjE1OTEwNTYzNzR9.Jn5yoc5fiNn3bZg4x4KG4tZlyn_HPIAQRw_BuqBGgfc"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:5000/user",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "127.0.0.1:5000/authors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "x-access-tokens",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJwdWJsaWNfaWQiOiI2OGViYjY5OS1jYzRkLTRjYTEtYTE1OC02NzJlZDE0YzJmMTkiLCJleHAiOjE1OTEwNTYzNzR9.Jn5yoc5fiNn3bZg4x4KG4tZlyn_HPIAQRw_BuqBGgfc"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:5000/authors",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"authors"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "12345678",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "ddddddd",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"id": "b45c0379-199e-4bf8-bd46-b0b093082e3e",
+			"key": "path",
+			"value": "http://127.0.0.1:5000/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
