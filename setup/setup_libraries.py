@@ -1,12 +1,19 @@
+# coding=utf-8
+# !/usr/bin/python3
+
 from subprocess import call
 
 import pkg_resources
 
 libraries = [
-    "Flask",
-    "Flask-Cors",
-    "Flask-PyMongo",
-    "pymongo[srv]"
+    # Flask libraries
+    "Flask", "Flask-Cors",
+    # Databases
+    "Flask-PyMongo", "pymongo[srv]",
+    # Geolocation
+    "geopy",
+    # Translate strings
+    "textblob",
 ]
 call("pip install " + ' '.join(libraries), shell=True)
 
