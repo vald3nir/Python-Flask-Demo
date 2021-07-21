@@ -3,8 +3,10 @@ from subprocess import call
 import pkg_resources
 
 libraries = [
-    "flask",
-    "flask-cors"
+    "Flask",
+    "Flask-Cors",
+    "Flask-PyMongo",
+    "pymongo[srv]"
 ]
 call("pip install " + ' '.join(libraries), shell=True)
 
