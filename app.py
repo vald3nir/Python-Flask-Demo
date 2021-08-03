@@ -4,34 +4,35 @@
 import os
 
 from flask import Flask, render_template
+from flask_cors import CORS
+
+from src.apis.blueprints import blueprints
 
 # Flask config
 # ---------------------------------------------------------------
+
 app = Flask(__name__)
 
-
-# app.config['SECRET_KEY'] = 'Th1s1ss3cr3t'
-# app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['FLASK_ENV'] = 'development'
+app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['SECRET_KEY'] = 'Th1s1ss3cr3t'
+app.config['TESTING'] = True
+app.config['DEBUG'] = True
 
 # Cors
 # ---------------------------------------------------------------
-# cors = CORS(app, resources={r"/*": {"origins": "*"}})
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
-
-# ---------------------------------------------------------------
-# Routers
+# Blueprints config
 # ---------------------------------------------------------------
 
-# app.register_blueprint(user_router)
-# app.register_blueprint(time_series_router)
-# app.register_blueprint(eco_friendly_router)
+for blueprint in blueprints:
+    app.register_blueprint(blueprint)
 
 
-# ---------------------------------------------------------------
-# START
+# Start server
 # ---------------------------------------------------------------
 
-@app.route('/home')
 @app.route('/')
 def home():
     return render_template("home.html", message="Hello to:")

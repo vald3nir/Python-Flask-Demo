@@ -4,15 +4,17 @@
 from subprocess import call
 
 libraries = [
+    # Server HTTP
+    "gunicorn",
     # Flask libraries
-    "Flask", "Flask-Cors", "Flask-SQLAlchemy",
+    "Flask", "Flask-Cors",
     # Databases
     "Flask-PyMongo", "pymongo[srv]",
     # Web Token
     "jwt",
-    # Geolocation
-    "geopy",
     # Translate strings
     "textblob",
 ]
-call("pip install " + ' '.join(libraries), shell=True)
+
+call("pip install --upgrade " + ' '.join(libraries), shell=True)
+call("pip freeze > ../requirements.txt", shell=True)

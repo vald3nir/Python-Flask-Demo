@@ -3,15 +3,20 @@
 
 import pymongo
 
+# DB CONFIG
+_APP_DATABASE = "vald3flix"
+DB_USER_NAME = "dev"
+DB_USER_PASSWORD = "njOcs9iCSBCO8Gro"
+DB_HOST = "realmcluster.ikdg6.mongodb.net"
 
-class Database:
-    def __init__(self, database="Flask-Demo", collection="null") -> None:
+_USER_ID = f"{DB_USER_NAME}:{DB_USER_PASSWORD}@{DB_HOST}"
+_CLIENT_URL = f"mongodb+srv://{_USER_ID}/{_APP_DATABASE}?retryWrites=true&w=majority"
+
+
+class MongoDB:
+    def __init__(self, collection, ) -> None:
         super().__init__()
-        user_id = "dev:v39QiKuCWUHUcGdj@flask-demo-cluster.kwy4z.mongodb.net"
-        client_url = "mongodb+srv://" + user_id + "/" + database + "?retryWrites=true&w=majority"
-        client = pymongo.MongoClient(client_url)
-        db = client[database]
-        self.collection = db[collection]
+        self.collection = pymongo.MongoClient(_CLIENT_URL)[_APP_DATABASE][collection]
 
     def find_one(self, query):
         return self.collection.find_one(query)
@@ -21,6 +26,9 @@ class Database:
 
     def insert_one(self, query):
         self.collection.insert_one(query)
+
+    def aggregate(self, query):
+        self.collection.aggregate(query)
 
     def find_all(self, query=None):
         if query is None:

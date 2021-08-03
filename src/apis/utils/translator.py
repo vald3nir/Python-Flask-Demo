@@ -1,10 +1,7 @@
-# coding=utf-8
-# !/usr/bin/python3
-
 from textblob import TextBlob
 
 
-def translate(message, language):
-    if language is None:
+def translate_text(message, language="en"):
+    if not language or language == "en":
         return message
     return str(TextBlob(message).translate(to=language))
