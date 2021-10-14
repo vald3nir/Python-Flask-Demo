@@ -3,7 +3,7 @@
 
 import os
 
-from flask import Flask, render_template
+from flask import Flask
 from flask_cors import CORS
 
 from src.apis.blueprints import blueprints
@@ -29,16 +29,8 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 for blueprint in blueprints:
     app.register_blueprint(blueprint)
 
-
 # Start server
 # ---------------------------------------------------------------
-
-@app.route('/')
-def home():
-    return render_template("home.html", message="Hello to:")
-
-
 port = int(os.environ.get('PORT', 5000))
-
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=port)
