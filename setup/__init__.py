@@ -4,16 +4,11 @@
 from subprocess import call
 
 libraries = [
-    # Server HTTP
-    "gunicorn",
-    # Flask libraries
-    "Flask", "Flask-Cors",
-    # Databases
-    "Flask-PyMongo", "pymongo[srv]",
-    # Web Token
-    "jwt",
-    # Translate strings
-    "textblob",
+    "gunicorn",  # Server HTTP
+    "Flask", "Flask-Cors",  # Flask libraries
+    "Flask-PyMongo", "pymongo[srv]",  # Databases
+    "jwt",  # Web Token
+    "googletrans==4.0.0-rc1",  # Translate strings
 ]
 
 call("pip install --upgrade " + ' '.join(libraries), shell=True)

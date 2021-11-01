@@ -1,7 +1,6 @@
-from textblob import TextBlob
+from googletrans import Translator
 
-
-def translate_text(message, language="en"):
-    if not language or language == "en":
-        return message
-    return str(TextBlob(message).translate(to=language))
+def translate_text(message):
+    translator = Translator()
+    result = translator.translate(message, src='en', dest='pt')
+    return result.text
